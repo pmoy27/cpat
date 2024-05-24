@@ -1,3 +1,4 @@
+@vite(['resources/css/app.css','resources/js/app.js'])
 @include('menu.menu')
 <style>
     .dataTables_wrapper .dataTables_length select {

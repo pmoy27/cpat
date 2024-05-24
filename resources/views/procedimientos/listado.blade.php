@@ -55,7 +55,7 @@
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <table id="myTable" class="">
-            <thead class="text-sm bg-blue-800 text-white">
+            <thead class="">
                 <tr>
                     <th>Procedimiento</th>
                     <th>Estado</th>

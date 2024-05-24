@@ -10,7 +10,7 @@
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-800">
 
         <div class="p-3 mb-5 flex justify-center items-center">
-            <img class="w-[120px] h-[90px]" src="{{ url('/menu/Logo.png') }}" alt="Logo">
+            <img class="w-[120px] h-[90px]" src="{{ asset('Logo.png') }}" alt="Logo">
         </div>
         <ul class="space-y-2 text-sm">
             <li>

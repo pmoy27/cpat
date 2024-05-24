@@ -11,7 +11,7 @@
 
                     <label class="font-semibold">1. Nombre</label>
                     <span class="text-sm text-gray-400">Denominación del registro, por ejemplo :"Fondos Concursables sobre Transformación Digital".</span>
-                    <input type="text" name="nombre" value="{{ old('nombre', isset($identificacion) ? $identificacion->nombre  : '') }}" class="bg-white border border-gray-300 text-gray-900 text-sm mt-3 rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
+                    <input type="text" name="nombre" value="{{ old('nombre', isset($procedimiento) ? $procedimiento->nombre  : '') }}" class="bg-white border border-gray-300 text-gray-900 text-sm mt-3 rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
                 </div>
                 <div class="flex flex-col">
                     <label class="font-semibold">2. Descripción</label>

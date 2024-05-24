@@ -12,7 +12,14 @@ class ProcedimientoController extends Controller
      */
     public function index()
     {
-        //
+        $procedimiento = procedimiento::all();
+        $id_usuario = auth()->id();
+        return view('procedimientos.listado', compact('procedimiento'), ['id_usuario' => $id_usuario]);
+    }
+    public function dashboard()
+    {
+        $procedimiento = procedimiento::all();
+        return view('dashboard', compact('procedimiento'));
     }
 
     /**

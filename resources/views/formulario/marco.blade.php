@@ -16,7 +16,7 @@
                 <div class="flex flex-col">
                     <label class="font-semibold">9. URL de la Ley en LeyChile (Biblioteca del Congreso Nacional de Chile)</label>
 
-                    <input type="text" name="url_ley" value="{{ old('url_ley', isset($marco) ? $marco->url_ley  : '') }}" placeholder="Formato: https://www.ejemplo.cl" class="bg-white border border-gray-300 text-gray-900 text-sm mt-3 rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
+                    <input type="url" name="url_ley" value="{{ old('url_ley', isset($marco) ? $marco->url_ley  : '') }}" placeholder="Formato: https://www.ejemplo.cl" class="bg-white border border-gray-300 text-gray-900 text-sm mt-3 rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
                 </div>
                 <div class="flex flex-col">
                     <label class="font-semibold">10. Otras fuentes normativas</label>

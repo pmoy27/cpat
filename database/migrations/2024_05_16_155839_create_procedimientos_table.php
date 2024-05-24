@@ -14,7 +14,11 @@ return new class extends Migration
     {
         Schema::create('procedimientos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('nombre')->nullable();
+            $table->string('Tipo_procedimiento')->nullable();
+            $table->string('estado')->default('Asignado');
+            $table->unsignedBigInteger('id_usuario');
+            $table->foreign('id_usuario')->references('id')->on('users');
             $table->timestamps();
         });
     }

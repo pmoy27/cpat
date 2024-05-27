@@ -122,19 +122,19 @@
                     <span class="text-sm text-gray-400">Indique el estado actual del expediente asociado a este registro. El expediente es el registro íntegro de todas las actuaciones de un procedimiento administrativo, documentos, resoluciones, notificaciones y comunicaciones que deriven de éste.</span>
                     <div class="grid grid-cols-3 mt-4 justify-between gap-3 mb-3">
                         <div class="flex items-center">
-                            <input id="default-radio-1" type="radio" name="tipo_expediente" value="Expediente fisico" {{ ($soporte->tipo_expediente ?? '') == "Expediente fisico" ? 'Checked' : '' }} name="tipo_expediente" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 " onclick="toggleFields('Si')">
+                            <input id="default-radio-1" type="radio" name="tipo_expediente" value="Expediente fisico" {{ ($soporte->tipo_expediente ?? '') == "Expediente fisico" ? 'Checked' : '' }} name="tipo_expediente" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 ">
                             <label for="default-radio-1" class="ms-2 text-sm font-medium text-gray-900 ">Expediente fisico</label>
                         </div>
                         <div id="tipo-nivel0" style="display: none;" class="flex items-center">
-                            <input id="default-radio-2" type="radio" name="tipo_expediente" value="Expediente electrónico" {{ ($soporte->tipo_expediente ?? '') == "Expediente electrónico" ? 'Checked' : '' }} name="tipo_expediente" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 " onclick="toggleFields('No')">
+                            <input id="default-radio-2" type="radio" name="tipo_expediente" value="Expediente electrónico" {{ ($soporte->tipo_expediente ?? '') == "Expediente electrónico" ? 'Checked' : '' }} name="tipo_expediente" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 ">
                             <label for="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 ">Expediente electrónico</label>
                         </div>
                         <div id="tipo-nivel0-2" style="display: none;" class="flex items-center">
-                            <input id="default-radio-3" type="radio" name="tipo_expediente" value="Expediente fisico y electrónico (hibrido)" {{ ($soporte->tipo_expediente ?? '') == "Expediente fisico y electrónico (hibrido)" ? 'Checked' : '' }} name="tipo_expediente" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 " onclick="toggleFields('En algunos casos')">
+                            <input id="default-radio-3" type="radio" name="tipo_expediente" value="Expediente fisico y electrónico (hibrido)" {{ ($soporte->tipo_expediente ?? '') == "Expediente fisico y electrónico (hibrido)" ? 'Checked' : '' }} name="tipo_expediente" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 ">
                             <label for="default-radio-3" class="ms-2 text-sm font-medium text-gray-900 ">Expediente fisico y electrónico (hibrido)</label>
                         </div>
                         <div class="flex items-center">
-                            <input id="default-radio-4" type="radio" name="tipo_expediente" value="No genera un expediente" {{ ($soporte->tipo_expediente ?? '') == "No genera un expediente" ? 'Checked' : '' }} name="tipo_expediente" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 " onclick="toggleFields('En algunos casos')">
+                            <input id="default-radio-4" type="radio" name="tipo_expediente" value="No genera un expediente" {{ ($soporte->tipo_expediente ?? '') == "No genera un expediente" ? 'Checked' : '' }} name="tipo_expediente" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 ">
                             <label for="default-radio-4" class="ms-2 text-sm font-medium text-gray-900 ">No genera un expediente</label>
                         </div>
                     </div>

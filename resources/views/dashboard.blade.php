@@ -24,7 +24,7 @@
                 </svg>
                 <div class="flex flex-col text-center justify-center">
                     <h5 class="text-lg text-center">Asignados</h5>
-                    <h2>1000</h2>
+                    <h2>{{$totalAsignado}}</h2>
                 </div>
 
             </div>
@@ -43,14 +43,14 @@
                 </svg>
                 <div class="flex flex-col text-center justify-center">
                     <h5 class="text-lg text-center">Finalizados</h5>
-                    <h2>1000</h2>
+                    <h2>{{ $totalFinalizado}}</h2>
                 </div>
 
             </div>
         </div>
 
         <div class="w-full flex justify-center mb-10">
-            <button class="flex items-center text-sm gap-4 p-3 border bg-blue-900 text-white" type="submit">
+            <button data-modal-target="modal-crear" data-modal-toggle="modal-crear" class="flex items-center text-sm gap-4 p-3 border bg-blue-900 text-white" type="button">
                 Generar nuevo procedimiento
             </button>
         </div>
@@ -67,8 +67,18 @@
                     @foreach ($procedimiento as $procedimientos )
                     <tr>
                         <td>{{$procedimientos->nombre}}</td>
-                        <td><span class="bg-green-600 text-white text-sm font-medium me-2 px-2.5 py-0.5 rounded ">Finalizado</span></td>
+                        <td> @if($procedimientos->estado == 'Asignado')
+                            <span class="bg-orange-400 text-white text-sm font-medium me-2 px-2.5 py-0.5 rounded">
+                                {{ $procedimientos->estado }}
+                            </span>
+                            @else
+                            <span class="bg-green-600 text-white text-sm font-medium me-2 px-2.5 py-0.5 rounded">
+                                {{ $procedimientos->estado }}
+                            </span>
+                            @endif
+                        </td>
                         <td class=" flex gap-4">
+                            @if($procedimientos->estado == 'Asignado')
                             <a href="/identificacion/{{$procedimientos->id}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -77,12 +87,19 @@
                                     <path d="M16 5l3 3" />
                                 </svg>
                             </a>
+                            @else
+                            @endif
                             <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-description">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                     <path d="M14 3v4a1 1 0 0 0 1 1h4" />
                                     <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
                                     <path d="M9 17h6" />
                                     <path d="M9 13h6" />
+                                </svg></a>
+                            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-checkbox">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M9 11l3 3l8 -8" />
+                                    <path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" />
                                 </svg></a>
                         </td>
                     </tr>
@@ -96,6 +113,8 @@
 
 
 </div>
+@include('procedimientos.create')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json"></script>
@@ -105,6 +124,16 @@
             language: {
                 url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json',
             },
+
+            columnDefs: [{
+                    orderable: false,
+                    targets: 2
+                },
+                {
+                    width: 200,
+                    targets: 1
+                },
+            ]
         });
 
     });

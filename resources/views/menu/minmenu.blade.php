@@ -1,7 +1,7 @@
 <div class="flex flex-col gap-4">
     <div class="p-3 border border-gray-200 rounded-lg shadow-lg h-[100px] w-[250px]">
         <h5 class="text-sm font-semibold">Tipo de procedimiento</h5>
-        <p class="text-xs p-2 text-gray-400">Procedimiento administrativo de función específica</p>
+        <p class="text-xs p-2 text-gray-400">{{$procedimiento->Tipo_procedimiento}}</p>
     </div>
 
     <div class="p-3 border border-gray-200 rounded-lg shadow-lg ">

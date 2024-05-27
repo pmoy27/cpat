@@ -28,12 +28,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/soporte/{id}', [SoporteController::class, 'cargar'])->name('formulario.soporte');
     Route::get('/digital/{id}', [DigitalController::class, 'cargar'])->name('formulario.digital');
     Route::get('/listado', [ProcedimientoController::class, 'index'])->name('procedimiento.listado');
+
     Route::get('/dashboard', [ProcedimientoController::class, 'dashboard'])->name('dashboard');
+
     Route::get('/notificaciones/{id}', [NotificacionController::class, 'cargar'])->name('formulario.notifiaciones');
     Route::get('/datos/{id}', [DatoController::class, 'cargar'])->name('formulario.datos');
     Route::post('/registro-usuarios-id', [UsuarioController::class, 'store'])->name('formulario.usuario');
     Route::post('/registro-soporte-id', [SoporteController::class, 'store'])->name('formulario.soporte');
     Route::post('/registro-digital-id', [DigitalController::class, 'store'])->name('formulario.digital');
+    Route::post('/registro-procedimiento', [ProcedimientoController::class, 'store'])->name('crear.procedimiento');
     Route::post('/registro-notifiacion-id', [NotificacionController::class, 'store'])->name('formulario.notificacion');
     Route::post('/registro-datos-id', [DatoController::class, 'store'])->name('formulario.datos');
 });

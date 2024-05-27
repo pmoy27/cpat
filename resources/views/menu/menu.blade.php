@@ -13,6 +13,7 @@
             <img class="w-[120px] h-[90px]" src="{{ asset('Logo.png') }}" alt="Logo">
         </div>
         <ul class="space-y-2 text-sm">
+            @role('admin')
             <li>
                 <a href="/dashboard" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group @if(request()->routeIs('dashboard')) bg-gray-700 @endif">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="text-white" width="16" height="16" color="#000000" fill="none">
@@ -24,7 +25,7 @@
                 </a>
             </li>
 
-
+            @endrole
         </ul>
         <div class="mt-5 flex flex-col gap-4">
 

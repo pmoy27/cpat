@@ -1,10 +1,12 @@
 @include('menu.menu')
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 <div class="p-4 lg:ml-64  h-full ">
     <div class="flex gap-5 mt-5 max-w-8xl mx-auto sm:px-6 lg:px-8">
         @include('menu.minmenu')
         <div class="p-3 shadow-lg w-full border mb-10 border-gray-200 rounded-lg">
             <h5 class="text-lg font-semibold p-3">Datos y documentos</h5>
-            <form class="mt-5 p-3 flex flex-col gap-5" action="{{route('formulario.datos')}}" method="post" enctype="multipart/form-data">
+            <form id="finishForm{{ $procedimiento->id }}" class="mt-5 p-3 flex flex-col gap-5" action="{{route('formulario.datos')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" value="{{$procedimiento->id}}" name="id_procedimiento">
                 <div class="flex flex-col">
@@ -113,24 +115,52 @@
                             <path d="M5 12l6 -6" />
                         </svg>Atras</button>
                     <div class="flex gap-4">
-                        <button class="flex items-center text-md gap-1 p-3 underline  text-blue-900" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-device-floppy">
+                        <button class="flex items-center text-md gap-1 p-3 underline  text-blue-900" name="action" value="guardar" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-device-floppy">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2" />
                                 <path d="M12 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
                                 <path d="M14 4l0 4l-6 0l0 -4" />
                             </svg>Guardar</button>
-                        <button class="flex items-center text-sm gap-2 p-3 border bg-blue-900 text-white" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-send">
+                        <a data-modal-target="confirmar" data-modal-toggle="confirmar" class="flex items-center text-sm gap-2 p-3 border cursor-pointer bg-blue-900 text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-send">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path d="M10 14l11 -11" />
                                 <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
-                            </svg>Finalizar y enviar</button>
+                            </svg>
+                            Finalizar y enviar
+                        </a>
+
+
+
                     </div>
 
                 </div>
+                @include('formulario.confirmar')
             </form>
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+@if(session('guardado'))
+<script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+    });
+    Toast.fire({
+        icon: "success",
+        title: "Guardado, Correctamente"
+    });
+</script>
+@endif
 
 <script>
     function toggleFields(value) {

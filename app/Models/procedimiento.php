@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class procedimiento extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'id',
+
+        'estado'
+
+    ];
     public function identificacion()
     {
         return $this->hasMany(identificacion::class, 'id_procedimiento');

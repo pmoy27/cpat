@@ -54,7 +54,7 @@ class IdentificacionController extends Controller
         Identificacion::updateOrCreate($criteria, $values);
 
         // Redirecciona con un mensaje de éxito
-        return redirect()->back()->with('success', 'Registro guardado correctamente');
+        return redirect()->back()->with('guardado', 'guardado');
     }
     public function cargar($id)
     {

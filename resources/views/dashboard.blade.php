@@ -148,3 +148,19 @@
 
     });
 </script>
+<script>
+    $(document).ready(function() {
+        var table = $('#myTable').DataTable();
+
+        // Manejar el evento de clic en los enlaces para abrir el modal
+        $('#myTable').on('click', 'a[data-modal-target]', function() {
+            var target = $(this).data('modal-target');
+            $(target).removeClass('hidden').addClass('block');
+        });
+
+        // Manejar el evento de cierre del modal
+        $('[data-modal-dismiss]').on('click', function() {
+            $(this).closest('.modal').removeClass('block').addClass('hidden');
+        });
+    });
+</script>

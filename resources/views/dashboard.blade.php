@@ -89,34 +89,22 @@
                             </a>
                             @else
                             @endif
-                            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-description">
+                            <a href="/detalle/{{$procedimientos->id}}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-description">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                     <path d="M14 3v4a1 1 0 0 0 1 1h4" />
                                     <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
                                     <path d="M9 17h6" />
                                     <path d="M9 13h6" />
                                 </svg></a>
-                            <a data-modal-target="modal-editar-{{$procedimientos->id}}" data-modal-toggle="modal-editar-{{$procedimientos->id}}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-checkbox">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M9 11l3 3l8 -8" />
-                                    <path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" />
-                                </svg></a>
-                            <a data-modal-target="modal-eliminar{{$procedimientos->id}}" data-modal-toggle="modal-eliminar{{$procedimientos->id}}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-trash">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M4 7l16 0" />
-                                    <path d="M10 11l0 6" />
-                                    <path d="M14 11l0 6" />
-                                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                </svg></a>
+
                         </td>
                     </tr>
-                    @include('procedimientos.editar')
-                    @include('procedimientos.delete')
+
                     @endforeach
 
                 </tbody>
             </table>
+
         </div>
 
     </div>
@@ -124,6 +112,7 @@
 
 </div>
 @include('procedimientos.create')
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
@@ -146,21 +135,5 @@
             ]
         });
 
-    });
-</script>
-<script>
-    $(document).ready(function() {
-        var table = $('#myTable').DataTable();
-
-        // Manejar el evento de clic en los enlaces para abrir el modal
-        $('#myTable').on('click', 'a[data-modal-target]', function() {
-            var target = $(this).data('modal-target');
-            $(target).removeClass('hidden').addClass('block');
-        });
-
-        // Manejar el evento de cierre del modal
-        $('[data-modal-dismiss]').on('click', function() {
-            $(this).closest('.modal').removeClass('block').addClass('hidden');
-        });
     });
 </script>

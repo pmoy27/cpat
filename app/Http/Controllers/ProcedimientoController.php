@@ -42,9 +42,11 @@ class ProcedimientoController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    public function detalle($id)
+    {
+        $procedimiento = procedimiento::find($id);
+        return view('procedimientos.detalle', ['procedimiento' => $procedimiento]);
+    }
     public function store(Request $request)
     {
         $procedimiento = new procedimiento();
@@ -95,6 +97,6 @@ class ProcedimientoController extends Controller
         $id = $request->input('id');
         $procedimiento = procedimiento::find($id);
         $procedimiento->delete();
-        return redirect()->back()->with('success', 'success');
+        return redirect()->route('dashboard')->with('success', 'success');
     }
 }

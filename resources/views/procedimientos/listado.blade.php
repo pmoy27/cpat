@@ -100,9 +100,18 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css
                             </svg>
                         </a>
                         @endif
+                        <a data-modal-target="detalle-modal{{$procedimientos->id}}" data-modal-toggle="detalle-modal{{$procedimientos->id}}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-description">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                                <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                                <path d="M9 17h6" />
+                                <path d="M9 13h6" />
+                            </svg></a>
 
                     </td>
                 </tr>
+                @include('procedimientos.detalle')
+
                 @endforeach
 
             </tbody>
@@ -120,7 +129,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css
     });
 </script>
 @endif
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json"></script>
@@ -139,7 +148,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css
                     targets: 2
                 },
                 {
-                    width: 350,
+                    width: 450,
                     targets: 1
                 },
                 {

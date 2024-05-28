@@ -39,6 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/registro-procedimiento', [ProcedimientoController::class, 'store'])->name('crear.procedimiento');
     Route::post('/registro-notifiacion-id', [NotificacionController::class, 'store'])->name('formulario.notificacion');
     Route::post('/registro-datos-id', [DatoController::class, 'store'])->name('formulario.datos');
+    Route::put('/editar', [ProcedimientoController::class, 'update'])->name('procedimiento.editar');
 });
 
 require __DIR__ . '/auth.php';

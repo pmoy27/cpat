@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\identificacion;
 use App\Models\procedimiento;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -76,7 +77,14 @@ class ProcedimientoController extends Controller
      */
     public function update(Request $request, procedimiento $procedimiento)
     {
-        //
+        $id = $request->input('id');
+        $procedimiento = procedimiento::find($id);
+        $procedimiento->nombre = $request->input('nombre');
+
+
+        $procedimiento->update();
+
+        return redirect()->back()->with('success', 'Registro guardado correctamente');
     }
 
     /**

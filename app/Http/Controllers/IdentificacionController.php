@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\identificacion;
 use App\Models\procedimiento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IdentificacionController extends Controller
 {
@@ -59,7 +60,7 @@ class IdentificacionController extends Controller
     public function cargar($id)
     {
         $procedimiento = procedimiento::find($id);
-
+        $userName = Auth::user()->name;
         $identificacion = Identificacion::select('*')
             ->where('id_procedimiento', $id)
             ->first();
@@ -67,7 +68,7 @@ class IdentificacionController extends Controller
             abort(404); // Otra acción en caso de que no se encuentre la identificación
         }
 
-        return view('formulario.identificaciones', [
+        return view('formulario.identificaciones', compact('userName'), [
             'identificacion' => $identificacion,
             'procedimiento' => $procedimiento
 

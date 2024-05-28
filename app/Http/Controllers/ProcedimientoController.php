@@ -6,6 +6,7 @@ use App\Models\identificacion;
 use App\Models\procedimiento;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProcedimientoController extends Controller
 {
@@ -16,22 +17,24 @@ class ProcedimientoController extends Controller
     {
         // Obtén el ID del usuario autenticado
         $userId = auth()->id();
-
+        $userName = Auth::user()->name;
         // Obtén solo los procedimientos del usuario autenticado
         $procedimiento = Procedimiento::where('id_usuario', $userId)->get();
         $totalAsignado = $procedimiento->where('estado', 'Asignado')->count();
         $totalFinalizado = $procedimiento->where('estado', 'Finalizado')->count();
 
         // Pasa los procedimientos a la vista
-        return view('procedimientos.listado', compact('procedimiento', 'totalAsignado', 'totalFinalizado'));
+        return view('procedimientos.listado', compact('procedimiento', 'userName', 'totalAsignado', 'totalFinalizado'));
     }
+
     public function dashboard()
     {
         $procedimiento = procedimiento::all();
+        $userName = Auth::user()->name;
         $totalAsignado = $procedimiento->where('estado', 'Asignado')->count();
         $totalFinalizado = $procedimiento->where('estado', 'Finalizado')->count();
         $users = User::all();
-        return view('dashboard', compact('procedimiento', 'totalAsignado', 'totalFinalizado'), ['users' => $users]);
+        return view('dashboard', compact('procedimiento', 'userName', 'totalAsignado', 'totalFinalizado'), ['users' => $users]);
     }
 
     /**

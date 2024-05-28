@@ -12,6 +12,11 @@
         <div class="p-3 mb-5 flex justify-center items-center">
             <img class="w-[120px] h-[90px]" src="{{ asset('Logo.png') }}" alt="Logo">
         </div>
+        <div class="text-center mb-10">
+
+            <p class="text-white font-semibold capitalize">{{ $userName }}</p>
+
+        </div>
         <ul class="space-y-2 text-sm">
             @role('admin')
             <li>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\procedimiento;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsuarioController extends Controller
 {
@@ -26,7 +27,7 @@ class UsuarioController extends Controller
     public function cargar($id)
     {
         $procedimiento = procedimiento::find($id);
-
+        $userName = Auth::user()->name;
         $usuario = Usuario::select('*')
             ->where('id_procedimiento', $id)
             ->first();
@@ -34,7 +35,7 @@ class UsuarioController extends Controller
             abort(404); // Otra acción en caso de que no se encuentre la identificación
         }
 
-        return view('formulario.usuario', [
+        return view('formulario.usuario', compact('userName'), [
             'usuario' => $usuario,
             'procedimiento' => $procedimiento
 

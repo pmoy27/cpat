@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\procedimiento;
 use App\Models\Soporte;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SoporteController extends Controller
 {
@@ -20,7 +21,7 @@ class SoporteController extends Controller
     {
 
         $procedimiento = Procedimiento::find($id);
-
+        $userName = Auth::user()->name;
         // Verifica si $procedimiento es nulo
         if (!$procedimiento) {
             abort(404);
@@ -35,7 +36,7 @@ class SoporteController extends Controller
         $canales_transaccionales = $soporte && $soporte->canales_transaccionales ? explode(',', $soporte->canales_transaccionales) : [];
         $plataforma_utilizado = $soporte && $soporte->plataforma_utilizado ? explode(',', $soporte->plataforma_utilizado) : [];
 
-        return view('formulario.soporte', [
+        return view('formulario.soporte', compact('userName'), [
             'soporte' => $soporte,
             'procedimiento' => $procedimiento,
             'canales_atencion' => $canales_atencion,

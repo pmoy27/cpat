@@ -16,7 +16,9 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
+        $userName = Auth::user()->name;
+
+        return view('profile.edit', compact('userName'), [
             'user' => $request->user(),
         ]);
     }

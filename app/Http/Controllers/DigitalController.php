@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Digital;
 use App\Models\procedimiento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DigitalController extends Controller
 {
@@ -20,7 +21,7 @@ class DigitalController extends Controller
 
         $procedimiento = procedimiento::find($id);
 
-
+        $userName = Auth::user()->name;
         $digital = Digital::select('*')
             ->where('id_procedimiento', $id)
             ->first();
@@ -28,7 +29,7 @@ class DigitalController extends Controller
             abort(404); // Otra acción en caso de que no se encuentre la identificación
         }
         $autenticacion = $digital && $digital->autenticacion ? explode(',', $digital->autenticacion) : [];
-        return view('formulario.digital', [
+        return view('formulario.digital', compact('userName'), [
             'digital' => $digital,
             'procedimiento' => $procedimiento,
             'autenticacion' => $autenticacion

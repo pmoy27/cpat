@@ -14,6 +14,7 @@
 <div class="p-4 lg:ml-64  h-full ">
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
         <div class="flex mb-10 gap-7">
             <div class="flex items-center justify-center gap-4 border p-4 border-gray-200 shadow-md h-[90px] w-[250px]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-500 icon icon-tabler icons-tabler-outline icon-tabler-alert-triangle">

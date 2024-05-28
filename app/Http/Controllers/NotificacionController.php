@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Notificacion;
 use App\Models\procedimiento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NotificacionController extends Controller
 {
@@ -28,7 +29,7 @@ class NotificacionController extends Controller
     {
 
         $procedimiento = procedimiento::find($id);
-
+        $userName = Auth::user()->name;
 
         $notificacion = Notificacion::select('*')
             ->where('id_procedimiento', $id)
@@ -37,7 +38,7 @@ class NotificacionController extends Controller
             abort(404); // Otra acción en caso de que no se encuentre la identificación
         }
         $etapas_notificaciones = $notificacion && $notificacion->etapas_notificaciones ? explode(',', $notificacion->etapas_notificaciones) : [];
-        return view('formulario.notificaciones', [
+        return view('formulario.notificaciones', compact('userName'), [
             'notificacion' => $notificacion,
             'procedimiento' => $procedimiento,
             'etapas_notificaciones' => $etapas_notificaciones

@@ -16,7 +16,7 @@
                 <div class="flex flex-col">
                     <label class="font-semibold">2. Descripción</label>
                     <span class="text-sm text-gray-400">Breve descripción que describe el objetivo y alcance de este registro.</span>
-                    <textarea type="text" name="descripcion" class="bg-white border border-gray-300 text-gray-900 text-sm mt-3 rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />{{ old('descripcion', isset($identificacion) ? $identificacion->descripcion  : '') }}</textarea>
+                    <textarea type="text" name="descripcion" maxlength="250" class="bg-white border border-gray-300 text-gray-900 text-sm mt-3 rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />{{ old('descripcion', isset($identificacion) ? $identificacion->descripcion  : '') }}</textarea>
                 </div>
                 <div class="flex flex-col">
                     <label class="font-semibold">3. Área responsable</label>

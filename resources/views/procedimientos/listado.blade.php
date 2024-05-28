@@ -60,7 +60,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css
             <thead class="text-sm bg-blue-800 text-white">
                 <tr>
                     <th>Procedimiento</th>
-
+                    <th>Tipo de procedimiento</th>
                     <th>Estado</th>
                     <th>acciones</th>
                 </tr>
@@ -69,7 +69,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css
                 @foreach ($procedimiento as $procedimientos )
                 <tr>
                     <td>{{$procedimientos->nombre}}</td>
-
+                    <td>{{$procedimientos->Tipo_procedimiento}}</td>
                     <td class=""> @if($procedimientos->estado == 'Asignado')
                         <span class="bg-orange-400 text-white text-sm font-medium me-2 px-2.5 py-0.5 rounded">
                             {{ $procedimientos->estado }}
@@ -139,8 +139,12 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css
                     targets: 2
                 },
                 {
-                    width: 250,
+                    width: 350,
                     targets: 1
+                },
+                {
+                    width: 90,
+                    targets: 3
                 },
             ]
         });

@@ -16,7 +16,7 @@
                 <div class="flex flex-col">
                     <label class="font-semibold">9. URL de la Ley en LeyChile (Biblioteca del Congreso Nacional de Chile)</label>
 
-                    <input type="url" name="url_ley" value="{{ old('url_ley', isset($marco) ? $marco->url_ley  : '') }}" placeholder="Formato: https://www.ejemplo.cl" class="bg-white border border-gray-300 text-gray-900 text-sm mt-3 rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
+                    <input type="url" name="url_ley" maxlength="600" value="{{ old('url_ley', isset($marco) ? $marco->url_ley  : '') }}" placeholder="Formato: https://www.ejemplo.cl" class="bg-white border border-gray-300 text-gray-900 text-sm mt-3 rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
                 </div>
                 <div class="flex flex-col">
                     <label class="font-semibold">10. Otras fuentes normativas</label>
@@ -44,7 +44,7 @@
                     <div class="flex flex-col">
                         <label class="font-semibold">URL de la otra fuente normativa</label>
 
-                        <input type="text" name="url_fuente" value="{{ old('url_fuente', isset($marco) ? $marco->url_fuente  : '') }}" class="bg-white border border-gray-300 text-gray-900 text-sm mt-3 rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
+                        <input type="text" name="url_fuente" maxlength="600" value="{{ old('url_fuente', isset($marco) ? $marco->url_fuente  : '') }}" class="bg-white border border-gray-300 text-gray-900 text-sm mt-3 rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
                     </div>
                 </div>
                 <div class="flex justify-end">
@@ -56,12 +56,21 @@
                                 <path d="M12 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
                                 <path d="M14 4l0 4l-6 0l0 -4" />
                             </svg>Guardar</button>
+                        @if ($procedimiento->Tipo_procedimiento == 'Procedimiento administrativo de función específica')
                         <a href="/usuario/{{$procedimiento->id}}" class="flex items-center text-md gap-1 p-3 underline  text-blue-900" name="action" value="guardar">Siguiente <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path d="M5 12l14 0" />
                                 <path d="M13 18l6 -6" />
                                 <path d="M13 6l6 6" />
                             </svg></a>
+                        @else
+                        <a href="/soporte/{{$procedimiento->id}}" class="flex items-center text-md gap-1 p-3 underline  text-blue-900" name="action" value="guardar">Siguiente <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M5 12l14 0" />
+                                <path d="M13 18l6 -6" />
+                                <path d="M13 6l6 6" />
+                            </svg></a>
+                        @endif
                     </div>
                 </div>
             </form>

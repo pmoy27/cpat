@@ -8,7 +8,7 @@
                 @csrf
                 <input type="hidden" value="{{$procedimiento->id}}" name="id_procedimiento">
                 <div class="flex flex-col">
-                    <label class="font-semibold">28. Notifiaciones practicadas</label>
+                    <label class="font-semibold">28. Notificaciones practicadas</label>
                     <span class="text-sm text-gray-400">Indique si este registro requiere enviar notificaciones durante la tramitación, independiente si ellas se efectúan en papel o electrónicamente.</span>
                     <div class="flex mt-4 gap-11">
                         <div class="flex items-center">

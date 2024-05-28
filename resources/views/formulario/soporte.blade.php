@@ -50,6 +50,9 @@
                                 </div>
                             </div>
                         </label>
+                        @if ($procedimiento->Tipo_procedimiento == 'Procedimiento administrativo de función específica')
+
+
                         <label for="bordered-radio-4">
                             <div class="flex items-center gap-2 p-3 ps-4 w-[320px] h-[100px] border border-gray-200 rounded cursor-pointer">
                                 <input id="bordered-radio-4" name="nivel_digitalizacion" type="radio" value="Nivel 4" {{ ($soporte->nivel_digitalizacion ?? '') == "Nivel 4" ? 'checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 " onclick="toggleFields('Nivel 4')">
@@ -59,6 +62,9 @@
                                 </div>
                             </div>
                         </label>
+                        @else
+
+                        @endif
                         <label for="bordered-radio-5">
                             <div class="flex items-center gap-2 p-3 ps-4 w-[320px] h-[100px] border border-gray-200 rounded cursor-pointer">
                                 <input id="bordered-radio-5" name="nivel_digitalizacion" type="radio" value="Nivel 5" {{ ($soporte->nivel_digitalizacion ?? '') == "Nivel 5" ? 'checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 " onclick="toggleFields('Nivel 5')">

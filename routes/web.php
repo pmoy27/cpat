@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/registro-notifiacion-id', [NotificacionController::class, 'store'])->name('formulario.notificacion');
     Route::post('/registro-datos-id', [DatoController::class, 'store'])->name('formulario.datos');
     Route::put('/editar', [ProcedimientoController::class, 'update'])->name('procedimiento.editar');
+    Route::delete('/eliminar', [ProcedimientoController::class, 'destroy'])->name('procedimiento.delete');
 });
 
 require __DIR__ . '/auth.php';

@@ -19,7 +19,7 @@
                 <form action="{{route('procedimiento.editar')}}" method="post" class="  max-w-2xl m-auto ">
                     @csrf
                     @method('PUT')
-                    <input type="text" name="id" value="{{$procedimientos->id}}">
+                    <input type="hidden" name="id" value="{{$procedimientos->id}}">
                     <div class="grid gap-4 mb-4 grid-cols-1">
 
 

@@ -90,8 +90,11 @@ class ProcedimientoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(procedimiento $procedimiento)
+    public function destroy(Request $request, procedimiento $procedimiento)
     {
-        //
+        $id = $request->input('id');
+        $procedimiento = procedimiento::find($id);
+        $procedimiento->delete();
+        return redirect()->back()->with('success', 'success');
     }
 }

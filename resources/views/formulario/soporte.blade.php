@@ -85,7 +85,7 @@
                 <div class="flex flex-col mt-3">
                     <label class="font-semibold">17. Canal(es) disponible(s) de atención</label>
                     <span class="text-sm text-gray-400">Medio(s) de contacto disponible para los usuarios(as) durante la tramitación del procedimiento administrativo u otras tramitaciones.</span>
-                    <div class="flex items-center mb-4 mt-3">
+                    <div id="digital" class="flex items-center mb-4 mt-3" style="display: none;">
                         <input id="checked-checkbox-1" type="checkbox" name="canales_atencion[]" value="Canal digital" {{ in_array('Canal digital', $canales_atencion) ? 'checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500  focus:ring-2 ">
                         <label for="checked-checkbox-1" class="ms-2 text-sm font-medium text-gray-900 ">Canal digital</label>
                     </div>
@@ -105,11 +105,11 @@
                 <div class="flex flex-col mt-3">
                     <label class="font-semibold">18. Canal(es) transaccional(es)</label>
                     <span class="text-sm text-gray-400">Medio a través del cuál se puede realizar la totalidad del procedimiento administrativo u otras tramitaciones, desde su inicio hasta la entrega de la respuesta final. Para estos canales se solicitarán transacciones.</span>
-                    <div class="flex items-center mb-4 mt-3">
+                    <div id="digital2" class="flex items-center mb-4 mt-3" style="display: none;">
                         <input id="checked-checkbox-5" type="checkbox" name="canales_transaccionales[]" value="Canal digital" {{ in_array('Canal digital', $canales_transaccionales) ? 'checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500  focus:ring-2 ">
                         <label for="checked-checkbox-5" class="ms-2 text-sm font-medium text-gray-900 ">Canal digital</label>
                     </div>
-                    <div class="flex items-center mb-4 ">
+                    <div id="digital3" class="flex items-center mb-4 ">
                         <input id="checked-checkbox-6" type="checkbox" name="canales_transaccionales[]" value="Canal presencial" {{ in_array('Canal presencial', $canales_transaccionales) ? 'checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500  focus:ring-2 ">
                         <label for="checked-checkbox-6" class="ms-2 text-sm font-medium text-gray-900 ">Canal presencial</label>
                     </div>
@@ -127,7 +127,7 @@
                     <label class="font-semibold">19. Tipo de expediente</label>
                     <span class="text-sm text-gray-400">Indique el estado actual del expediente asociado a este registro. El expediente es el registro íntegro de todas las actuaciones de un procedimiento administrativo, documentos, resoluciones, notificaciones y comunicaciones que deriven de éste.</span>
                     <div class="grid grid-cols-3 mt-4 justify-between gap-3 mb-3">
-                        <div class="flex items-center">
+                        <div id="nivel-0" class="flex items-center">
                             <input id="default-radio-1" type="radio" name="tipo_expediente" value="Expediente fisico" {{ ($soporte->tipo_expediente ?? '') == "Expediente fisico" ? 'Checked' : '' }} name="tipo_expediente" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 ">
                             <label for="default-radio-1" class="ms-2 text-sm font-medium text-gray-900 ">Expediente fisico</label>
                         </div>
@@ -295,6 +295,10 @@
         const additionalFields2 = document.getElementById('nivel-0');
         const additionalFields3 = document.getElementById('tipo-nivel0');
         const additionalFields4 = document.getElementById('tipo-nivel0-2');
+
+        const additionalFields5 = document.getElementById('digital');
+        const additionalFields6 = document.getElementById('digital2');
+        const additionalFields7 = document.getElementById('digital3');
         if (value === 'Nivel 5') {
             additionalFields.style.display = 'block';
             additionalFields2.style.display = 'block';
@@ -305,11 +309,19 @@
             additionalFields2.style.display = 'none';
             additionalFields3.style.display = 'none';
             additionalFields4.style.display = 'none';
+            additionalFields5.style.display = 'none';
+            additionalFields6.style.display = 'none';
+
+
         } else {
             additionalFields.style.display = 'none';
             additionalFields2.style.display = 'block';
             additionalFields3.style.display = 'block';
             additionalFields4.style.display = 'block';
+            additionalFields5.style.display = 'block';
+            additionalFields6.style.display = 'block';
+
+
         }
     }
 

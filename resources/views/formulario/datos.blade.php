@@ -74,7 +74,7 @@
 
                     <label class="font-semibold">32. Medio utilizado para enviar comunicaciones oficiales entre órganos de la Administración del Estado.</label>
                     <span class="text-sm text-gray-400">Si este registro considera el envío y recepción de comunicaciones oficiales, indique a través de qué medio éstas se efectúan.</span>
-                    <div class="grid grid-cols-3 mt-4 mb-3 gap-5 ">
+                    <div class="grid grid-cols-2 2xl:grid-cols-3 mt-4 mb-3 gap-5 ">
                         <label for="bordered-radio-9">
                             <div class="flex items-center gap-2 p-3 ps-4 w-[320px] h-[70px] border border-gray-200 rounded cursor-pointer">
                                 <input id="bordered-radio-9" name="enviar_comunicaciones" type="radio" value="Si, realiza envios por medio de la plataforma Doc Digital y/o se encuentra integrado a ella" {{ ($dato->enviar_comunicaciones ?? '') == "Si, realiza envios por medio de la plataforma Doc Digital y/o se encuentra integrado a ella" ? 'checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 ">

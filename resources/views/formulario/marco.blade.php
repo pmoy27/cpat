@@ -76,43 +76,44 @@
             </form>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-    @if(session('guardado'))
-    <script>
-        const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.onmouseenter = Swal.stopTimer;
-                toast.onmouseleave = Swal.resumeTimer;
-            }
-        });
-        Toast.fire({
-            icon: "success",
-            title: "Guardado, Correctamente"
-        });
-    </script>
-    @endif
-
-    <script>
-        function toggleFields(value) {
-            const additionalFields = document.getElementById('additional-fields');
-            if (value === 'Si') {
-                additionalFields.style.display = 'block';
-            } else {
-                additionalFields.style.display = 'none';
-            }
+@if(session('guardado'))
+<script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
         }
+    });
+    Toast.fire({
+        icon: "success",
+        title: "Guardado, Correctamente"
+    });
+</script>
+@endif
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Obtener el valor del radio button seleccionado al cargar la página
-            const selectedValue = document.querySelector('input[name="fuentes_normativas"]:checked');
-            if (selectedValue) {
-                toggleFields(selectedValue.value);
-            }
-        });
-    </script>
+<script>
+    function toggleFields(value) {
+        const additionalFields = document.getElementById('additional-fields');
+        if (value === 'Si') {
+            additionalFields.style.display = 'block';
+        } else {
+            additionalFields.style.display = 'none';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Obtener el valor del radio button seleccionado al cargar la página
+        const selectedValue = document.querySelector('input[name="fuentes_normativas"]:checked');
+        if (selectedValue) {
+            toggleFields(selectedValue.value);
+        }
+    });
+</script>

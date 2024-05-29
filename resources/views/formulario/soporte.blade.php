@@ -10,7 +10,7 @@
                 <div class="flex flex-col">
                     <label class="font-semibold">16. Nivel de digitalización</label>
                     <span class="text-sm text-gray-400">Escala de 0 a 5 que permite clasificar cada registro, según disponga o no de soporte electrónico. En esta escala el nivel 4 sólo aplica a procedimientos administrativos de función específica y otras tramitaciones.</span>
-                    <div class="grid grid-cols-3 mt-4 gap-5 justify-between">
+                    <div class="grid grid-cols-2 2xl:grid-cols-3 mt-4 gap-5 justify-between">
                         <label for="bordered-radio-0">
                             <div class="flex items-center gap-2 p-3 ps-4 w-[320px] h-[95px]  border border-gray-200 rounded cursor-pointer">
                                 <input id="bordered-radio-0" name="nivel_digitalizacion" type="radio" value="Nivel 0" {{ ($soporte->nivel_digitalizacion ?? '') == "Nivel 0" ? 'checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 " onclick="toggleFields('Nivel 0')">

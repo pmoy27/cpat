@@ -1,6 +1,6 @@
 @include('menu.menu')
 <div class="p-4 lg:ml-64  h-full ">
-    <div class="flex gap-5 mt-5 max-w-8xl mx-auto sm:px-6 lg:px-8">
+    <div class="flex gap-5 mt-5 max-w-9xl mx-auto sm:px-6 lg:px-8">
         @include('menu.minmenu')
         <div class="p-3 shadow-lg w-full border mb-10 border-gray-200 rounded-lg">
             <h5 class="text-lg font-semibold p-3">Identificación</h5>

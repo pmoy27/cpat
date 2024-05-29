@@ -30,7 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/listado', [ProcedimientoController::class, 'index'])->name('procedimiento.listado');
 
     Route::get('/dashboard', [ProcedimientoController::class, 'dashboard'])->name('dashboard');
-    Route::get('/detalle/{id}', [ProcedimientoController::class, 'detalle'])->name('formulario.detalle');
+    Route::get('/detalle/{id}', [ProcedimientoController::class, 'detalle'])->name('procedimientos.vista');
+    Route::get('/reporte/{id}', [ProcedimientoController::class, 'reporte'])->name('procedimiento.detalle');
     Route::get('/notificaciones/{id}', [NotificacionController::class, 'cargar'])->name('formulario.notifiaciones');
     Route::get('/datos/{id}', [DatoController::class, 'cargar'])->name('formulario.datos');
     Route::post('/registro-usuarios-id', [UsuarioController::class, 'store'])->name('formulario.usuario');

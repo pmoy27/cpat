@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dato;
+use App\Models\Digital;
 use App\Models\identificacion;
+use App\Models\Marco;
+use App\Models\Notificacion;
 use App\Models\procedimiento;
+use App\Models\Soporte;
 use App\Models\User;
+use App\Models\Usuario;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
+
 
 class ProcedimientoController extends Controller
 {
@@ -47,8 +56,45 @@ class ProcedimientoController extends Controller
 
     public function detalle($id)
     {
-        $procedimiento = procedimiento::find($id);
-        return view('procedimientos.detalle', ['procedimiento' => $procedimiento]);
+        $procedimiento = Procedimiento::find($id);
+        $identificacion = Identificacion::where('id_procedimiento', $id)->first();
+        $marco = Marco::where('id_procedimiento', $id)->first();
+        $usuario = Usuario::where('id_procedimiento', $id)->first();
+        $soporte = Soporte::where('id_procedimiento', $id)->first();
+        $digital = Digital::where('id_procedimiento', $id)->first();
+        $notificacion = Notificacion::where('id_procedimiento', $id)->first();
+        $dato = Dato::where('id_procedimiento', $id)->first();
+        $userName = Auth::user()->name;
+        return view('procedimientos.vista', compact('userName'), [
+            'procedimiento' => $procedimiento, 'identificacion' => $identificacion, 'marco' => $marco,
+            'usuario' => $usuario,
+            'soporte' => $soporte,
+            'digital' => $digital,
+            'notificacion' => $notificacion,
+            'dato' => $dato
+        ]);
+    }
+
+    public function reporte($id)
+    {
+        $procedimiento = Procedimiento::find($id);
+        $identificacion = Identificacion::where('id_procedimiento', $id)->first();
+        $marco = Marco::where('id_procedimiento', $id)->first();
+        $usuario = Usuario::where('id_procedimiento', $id)->first();
+        $soporte = Soporte::where('id_procedimiento', $id)->first();
+        $digital = Digital::where('id_procedimiento', $id)->first();
+        $notificacion = Notificacion::where('id_procedimiento', $id)->first();
+        $dato = Dato::where('id_procedimiento', $id)->first();
+        $userName = Auth::user()->name;
+        $pdf = PDF::loadView('procedimientos.detalle', compact('userName'), [
+            'procedimiento' => $procedimiento, 'identificacion' => $identificacion, 'marco' => $marco,
+            'usuario' => $usuario,
+            'soporte' => $soporte,
+            'digital' => $digital,
+            'notificacion' => $notificacion,
+            'dato' => $dato
+        ]);
+        return $pdf->stream();
     }
     public function store(Request $request)
     {

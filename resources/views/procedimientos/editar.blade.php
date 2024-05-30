@@ -27,7 +27,15 @@
                             <label for="" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Nombre del procedimiento<span class="text-red-700 text-sm">*</span></label>
                             <input type="text" name="nombre" id="nombre" value="{{$procedimiento->nombre}}" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block " required="">
                         </div>
-
+                        <div class="col-span-2 sm:col-span-1">
+                            <label for="" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Estado<span class="text-red-700 text-sm">*</span></label>
+                            <select id="estado" name="estado" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block " required="">
+                                <option value="" selected>Selecciones una Opción</option>
+                                <option name="estado" value="Asignado" {{ ($procedimiento->estado ?? '') == "Asignado" ? 'selected' : '' }}>Asignado</option>
+                                <option name="estado" value="Finalizado" {{ ($procedimiento->estado ?? '') == "Finalizado" ? 'selected' : '' }}>Finalizado</option>
+                                <option name="estado" value="Publicado" {{ ($procedimiento->estado ?? '') == "Publicado" ? 'selected' : '' }}>Publicado</option>
+                            </select>
+                        </div>
                         <div class="col-span-2 sm:col-span-1">
                             <label for="" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Usuario <span class="text-red-700 text-sm">*</span></label>
                             <select id="id_usuario" name="id_usuario" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block " required="">

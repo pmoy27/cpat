@@ -43,7 +43,7 @@ class ProcedimientoController extends Controller
         $totalAsignado = $procedimiento->where('estado', 'Asignado')->count();
         $totalFinalizado = $procedimiento->where('estado', 'Finalizado')->count();
         $users = User::all();
-        return view('dashboard', compact('procedimiento', 'userName', 'totalAsignado', 'totalFinalizado'), ['users' => $users]);
+        return view('dashboard', compact('procedimiento', 'userName',  'totalAsignado', 'totalFinalizado'), ['users' => $users]);
     }
 
     /**
@@ -65,6 +65,7 @@ class ProcedimientoController extends Controller
         $notificacion = Notificacion::where('id_procedimiento', $id)->first();
         $dato = Dato::where('id_procedimiento', $id)->first();
         $userName = Auth::user()->name;
+
         return view('procedimientos.vista', compact('userName'), [
             'procedimiento' => $procedimiento, 'identificacion' => $identificacion, 'marco' => $marco,
             'usuario' => $usuario,

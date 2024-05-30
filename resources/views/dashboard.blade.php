@@ -61,6 +61,7 @@
                     <tr>
                         <th>Procedimiento</th>
                         <th>Estado</th>
+                        <th>Usuario</th>
                         <th>acciones</th>
                     </tr>
                 </thead>
@@ -77,6 +78,9 @@
                                 {{ $procedimientos->estado }}
                             </span>
                             @endif
+                        </td>
+                        <td>
+                            {{$procedimientos->id_usuario}}
                         </td>
                         <td class=" flex gap-4">
                             @if($procedimientos->estado == 'Asignado')

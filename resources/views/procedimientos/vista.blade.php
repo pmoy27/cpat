@@ -54,7 +54,7 @@
                     <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
                     <path d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z" />
                 </svg>Imprimir</a>
-            <a class="flex gap-2 p-2 border">Editar</a>
+            <a data-modal-target="modal-editar-{{$procedimiento->id}}" data-modal-toggle="modal-editar-{{$procedimiento->id}}" class="flex gap-2 p-2 border">Editar</a>
             <a class="flex gap-2 p-2 border">Eliminar</a>
 
         </div>
@@ -238,3 +238,4 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 @include('procedimientos.delete')
+@include('procedimientos.editar')

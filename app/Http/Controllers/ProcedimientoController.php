@@ -65,14 +65,15 @@ class ProcedimientoController extends Controller
         $notificacion = Notificacion::where('id_procedimiento', $id)->first();
         $dato = Dato::where('id_procedimiento', $id)->first();
         $userName = Auth::user()->name;
-
+        $users = User::all();
         return view('procedimientos.vista', compact('userName'), [
             'procedimiento' => $procedimiento, 'identificacion' => $identificacion, 'marco' => $marco,
             'usuario' => $usuario,
             'soporte' => $soporte,
             'digital' => $digital,
             'notificacion' => $notificacion,
-            'dato' => $dato
+            'dato' => $dato,
+            'users' => $users
         ]);
     }
 
@@ -132,6 +133,7 @@ class ProcedimientoController extends Controller
         $id = $request->input('id');
         $procedimiento = procedimiento::find($id);
         $procedimiento->nombre = $request->input('nombre');
+        $procedimiento->id_usuario = $request->input('id_usuario');
 
 
         $procedimiento->update();

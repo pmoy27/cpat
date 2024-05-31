@@ -67,7 +67,7 @@
                     <span class="text-sm text-gray-400">Los productos son los bienes y/o servicios que pueden ser entregados a las personas en el ejercicio del mandato institucional. Seleccione el producto que mejor se adecúa a este registro.</span>
 
                     <select id="producto" name="producto_institucional" class="bg-white border border-gray-300 mt-3 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                        <option selected>Seleccióne una opción</option>
+                        <option selected disabled>Seleccióne una opción</option>
                         <option name="producto_institucional" value="Acreditación" {{ ($identificacion->producto_institucional ?? '') == "Acreditación" ? 'selected' : '' }}>Acreditación</option>
                         <option name="producto_institucional" value="Atención y/o información ciudadana" {{ ($identificacion->producto_institucional ?? '') == "Atención y/o información ciudadana" ? 'selected' : '' }}>Atención y/o información ciudadana</option>
                         <option name="producto_institucional" value="Autorización" {{ ($identificacion->producto_institucional ?? '') == "Autorización" ? 'selected' : '' }}>Autorización</option>
@@ -85,8 +85,12 @@
                         <option name="producto_institucional" value="Subsidios" {{ ($identificacion->producto_institucional ?? '') == "Subsidios" ? 'selected' : '' }}>Subsidios</option>
                         <option name="producto_institucional" value="Recaudación y pagos" {{ ($identificacion->producto_institucional ?? '') == "Recaudación y pagos" ? 'selected' : '' }}>Recaudación y pagos</option>
                         <option name="producto_institucional" value="Registros" {{ ($identificacion->producto_institucional ?? '') == "Registros" ? 'selected' : '' }}>Registros</option>
-                        <option name="producto_institucional" value="Otro" {{ ($identificacion->producto_institucional ?? '') == "Otro" ? 'selected' : '' }}>Otro</option>
+                        <option name="producto_institucional" value="Otro" {{ (strpos($identificacion->producto_institucional ?? '', "Otro") !== false) ? 'selected' : '' }}>Otro</option>
                     </select>
+                </div>
+                <div id="otro-div" class="flex flex-col">
+                    <label class="font-semibold">Indique cual</label>
+                    <input type="text" id="otro-input" name="otro_producto_institucional" value="{{ old('producto_institucional', isset($identificacion) ? $identificacion->producto_institucional  : '') }}" class="bg-white border border-gray-300 text-gray-900 text-sm mt-3 rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
                 </div>
                 <div class="flex justify-end">
                     <div class="flex gap-4">
@@ -109,8 +113,39 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const selectElement = document.getElementById('producto');
+        const otroDiv = document.getElementById('otro-div');
+        const otroInput = document.getElementById('otro-input');
 
+        selectElement.addEventListener('change', function() {
+            if (selectElement.value === 'Otro') {
+                otroDiv.style.display = 'block';
+            } else {
+                otroDiv.style.display = 'none';
+                otroInput.value = '';
+            }
+        });
+
+        // Check the initial value on page load
+        if (selectElement.value === 'Otro') {
+            otroDiv.style.display = 'block';
+        } else {
+            otroDiv.style.display = 'none';
+        }
+    });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+    function concatenateOtro(event) {
+        const selectElement = document.getElementById('producto');
+        const otroInput = document.getElementById('otro-input');
+        if (selectElement.value === 'Otro' && otroInput.value.trim() !== '') {
+            selectElement.value = `Otro: ${otroInput.value.trim()}`;
+        }
+    }
+</script>
 
 @if(session('guardado'))
 <script>

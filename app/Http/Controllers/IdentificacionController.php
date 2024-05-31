@@ -34,6 +34,14 @@ class IdentificacionController extends Controller
     }
     public function store(Request $request)
     {
+        // Verificar si el producto institucional seleccionado es "Otro"
+        $productoInstitucional = $request->input('producto_institucional');
+        $otroProducto = $request->input('otro_producto_institucional');
+
+        if ($productoInstitucional === 'Otro' && !empty($otroProducto)) {
+            $productoInstitucional = "Otro: " . $otroProducto;
+        }
+
         $criteria = [
             'id_procedimiento' => $request->input('id_procedimiento')
         ];
@@ -48,7 +56,7 @@ class IdentificacionController extends Controller
             'tipo_inicio' => $request->input('tipo_inicio'),
             'acto_inicio' => $request->input('acto_inicio'),
             'acto_termino' => $request->input('acto_termino'),
-            'producto_institucional' => $request->input('producto_institucional')
+            'producto_institucional' => $productoInstitucional
         ];
 
         // Usa el método updateOrCreate para insertar o actualizar el registro

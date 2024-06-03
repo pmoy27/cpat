@@ -18,6 +18,17 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    public function procedimientos()
+    {
+        return $this->hasMany(Procedimiento::class, 'id_usuario');
+    }
+
+
+
+    public function procedimientosFinalizados()
+    {
+        return $this->hasMany(Procedimiento::class, 'id_usuario')->where('estado', 'Finalizado');
+    }
     protected $fillable = [
         'name',
         'email',

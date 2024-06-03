@@ -50,10 +50,21 @@
             </div>
         </div>
 
-        <div class="w-full flex justify-center mb-10">
+        <div class="w-full flex justify-between mb-10">
             <button data-modal-target="modal-crear" data-modal-toggle="modal-crear" class="flex items-center text-sm gap-4 p-3 border bg-blue-900 text-white" type="button">
                 Generar nuevo procedimiento
             </button>
+            <a data-modal-target="modal-entrega" data-modal-toggle="modal-entrega" class="flex items-center text-sm gap-2 p-3 border cursor-pointer bg-blue-900 text-white" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-zoom-scan">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M4 8v-2a2 2 0 0 1 2 -2h2" />
+                    <path d="M4 16v2a2 2 0 0 0 2 2h2" />
+                    <path d="M16 4h2a2 2 0 0 1 2 2v2" />
+                    <path d="M16 20h2a2 2 0 0 0 2 -2v-2" />
+                    <path d="M8 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                    <path d="M16 16l-2.5 -2.5" />
+                </svg> Detalle de entregas
+            </a>
         </div>
         <div style="width: 100%;">
             <table id="myTable" class="" style="width: 100%;">
@@ -117,6 +128,7 @@
 
 </div>
 @include('procedimientos.create')
+@include('procedimientos.entregas')
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

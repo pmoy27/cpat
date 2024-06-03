@@ -29,7 +29,7 @@
                         <div class="flex flex-col">
                             <label class="font-semibold">Tipo de moneda</label>
                             <select id="producto" name="tipo_moneda" class="bg-white border border-gray-300 mt-3 mb-3 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                                <option selected>Seleccióne una opción</option>
+                                <option selected disabled>Seleccióne una opción</option>
                                 <option name="tipo_moneda" value="Peso chileno" {{ ($usuario->tipo_moneda ?? '') == "Peso chileno" ? 'selected' : '' }}>Peso chileno</option>
                                 <option name="tipo_moneda" value="Unidad de fomento" {{ ($usuario->tipo_moneda ?? '') == "Unidad de fomento" ? 'selected' : '' }}>Unidad de fomento</option>
                                 <option name="tipo_moneda" value="Unidad tributaria mensual" {{ ($usuario->tipo_moneda ?? '') == "Unidad tributaria mensual" ? 'selected' : '' }}>Unidad tributaria mensual</option>

@@ -64,7 +64,9 @@ class DatoController extends Controller
                 'tipo_informacion' => $request->input('tipo_informacion'),
                 'identifique_dato' => $request->input('identifique_dato'),
                 'identifique_documento' => $request->input('identifique_documento'),
-                'enviar_comunicaciones' => $request->input('enviar_comunicaciones')
+                'enviar_comunicaciones' => $request->input('enviar_comunicaciones'),
+                'doc_notarial' => $request->input('doc_notarial'),
+                'name_doc' => $request->input('name_doc')
 
             ];
 
@@ -87,7 +89,9 @@ class DatoController extends Controller
                 'tipo_informacion' => $request->input('tipo_informacion'),
                 'identifique_dato' => $request->input('identifique_dato'),
                 'identifique_documento' => $request->input('identifique_documento'),
-                'enviar_comunicaciones' => $request->input('enviar_comunicaciones')
+                'enviar_comunicaciones' => $request->input('enviar_comunicaciones'),
+                'doc_notarial' => $request->input('doc_notarial'),
+                'name_doc' => $request->input('name_doc')
 
             ];
             $procedimiento->update(['estado' => 'Finalizado']);

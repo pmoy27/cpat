@@ -12,6 +12,7 @@ class Digital extends Model
         'id',
         'autenticacion',
         'firma_electronica',
+        'mecanismos',
         'id_procedimiento'
 
     ];

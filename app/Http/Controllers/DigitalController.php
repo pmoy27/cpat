@@ -57,6 +57,7 @@ class DigitalController extends Controller
         // Define los valores que se deben actualizar o crear
         $values = [
             'firma_electronica' => $request->input('firma_electronica'),
+            'mecanismos' => $request->input('mecanismos'),
 
             'autenticacion' => $autenticacion,
 

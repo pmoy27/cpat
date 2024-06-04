@@ -17,6 +17,8 @@ class Dato extends Model
         'identifique_dato',
         'identifique_documento',
         'enviar_comunicaciones',
+        'doc_notarial',
+        'name_doc',
         'id_procedimiento'
 
     ];

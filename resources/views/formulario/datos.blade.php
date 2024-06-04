@@ -14,24 +14,25 @@
                     <span class="text-sm text-gray-400">Indique si para efectuar este procedimiento administrativo o tramitación requiere informacion que este en poder de otros órganos de la administración del Estado.</span>
                     <div class="flex mt-4 gap-11">
                         <div class="flex items-center">
-                            <input id="default-radio-1" type="radio" value="Si" name="expediente_otro_organo" {{ ($dato->expediente_otro_organo ?? '') == "Si" ? 'Checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 " onclick="toggleFields('Si')">
+                            <input id="default-radio-1" type="radio" value="Si" name="expediente_otro_organo" {{ ($dato->expediente_otro_organo ?? '') == "Si" ? 'Checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 " onclick="toggleFields3('Si')">
                             <label for="default-radio-1" class="ms-2 text-sm font-medium text-gray-900 ">Si</label>
                         </div>
                         <div class="flex items-center">
-                            <input id="default-radio-2" type="radio" value="No" name="expediente_otro_organo" {{ ($dato->expediente_otro_organo ?? '') == "No" ? 'Checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 " onclick="toggleFields('No')">
+                            <input id="default-radio-2" type="radio" value="No" name="expediente_otro_organo" {{ ($dato->expediente_otro_organo ?? '') == "No" ? 'Checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 " onclick="toggleFields3('No')">
                             <label for="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 ">No</label>
                         </div>
                     </div>
                 </div>
+
                 <div id="additional-fields" class="p-4" style="display: none;">
                     <div class="flex flex-col">
                         <label class="font-semibold">Medio utilizado para obtener el dato, documento (certificado) y/o expediente.</label>
                         <span class="text-sm text-gray-400">Esta pregunta debe ser contestada para cada dato, documento y/o expediente que se requiera de otros órganos de la administración del Estado, si hay más de uno debe presionar la opción "agregar otro dato, documento y/o expediente" y responder todas las preguntas de caracterización que se mostrarán.</span>
                         <select id="producto" name="medio_utilizado" class="bg-white border border-gray-300 mt-3 mb-3 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                             <option selected disabled>Seleccióne una opción</option>
-                            <option name="medio_utilizado" value="No hay interoperabilidad, se solicita a sus usuarios(as)" {{ ($dato->medio_utilizado ?? '') == "No utiliza" ? 'selected' : '' }}>No hay interoperabilidad, se solicita a sus usuarios(as)</option>
-                            <option name="medio_utilizado" value="No hay interoperabilidad, se intercambia manualmente con al institución" {{ ($dato->medio_utilizado ?? '') == "Utiliza firma electrónica avanzada del Estado (Firma Gob)" ? 'selected' : '' }}>No hay interoperabilidad, se intercambia manualmente con al institución</option>
-                            <option name="medio_utilizado" value="Hay interoperabilidad electrónica con la institución" {{ ($dato->medio_utilizado ?? '') == "Utiliza firma electrónica avanzada provista por un externo" ? 'selected' : '' }}>Hay interoperabilidad electrónica con la institución</option>
+                            <option name="medio_utilizado" value="No hay interoperabilidad, se solicita a sus usuarios(as)" {{ ($dato->medio_utilizado ?? '') == "No hay interoperabilidad, se solicita a sus usuarios(as)" ? 'selected' : '' }}>No hay interoperabilidad, se solicita a sus usuarios(as)</option>
+                            <option name="medio_utilizado" value="No hay interoperabilidad, se intercambia manualmente con al institución" {{ ($dato->medio_utilizado ?? '') == "No hay interoperabilidad, se intercambia manualmente con al institución" ? 'selected' : '' }}>No hay interoperabilidad, se intercambia manualmente con al institución</option>
+                            <option name="medio_utilizado" value="Hay interoperabilidad electrónica con la institución" {{ ($dato->medio_utilizado ?? '') == "Hay interoperabilidad electrónica con la institución" ? 'selected' : '' }}>Hay interoperabilidad electrónica con la institución</option>
 
                         </select>
                     </div>
@@ -70,9 +71,30 @@
                     </div>
 
                 </div>
+                <div class="flex flex-col">
+                    <label class="font-semibold">32. Documento(s) notarial(es)</label>
+                    <span class="text-sm text-gray-400">Señale si este registro requiere documentos notariales para su realización.</span>
+                    <div class="flex mt-4 gap-11">
+                        <div class="flex items-center">
+                            <input id="default-radio-111" type="radio" value="Si" name="doc_notarial" {{ ($dato->doc_notarial ?? '') == "Si" ? 'Checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 " onclick="toggleFields2('Si')">
+                            <label for="default-radio-111" class="ms-2 text-sm font-medium text-gray-900 ">Si</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="default-radio-222" type="radio" value="No" name="doc_notarial" {{ ($dato->doc_notarial ?? '') == "No" ? 'Checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 " onclick="toggleFields2('No')">
+                            <label for="default-radio-222" class="ms-2 text-sm font-medium text-gray-900 ">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div id="div-doc" class="p-4" style="display: none;">
+                    <div class="flex flex-col">
+                        <label class="font-semibold">Nombre del documento notarial relacionado</label>
+                        <span class="text-sm text-gray-400">Indique el nombre del documento notarial necesario para la realización de este registro, por ejemplo "escritura pública".</span>
+                        <input type="text" name="name_doc" value="{{ old('name_doc', isset($dato) ? $dato->name_doc  : '') }}" class="bg-white border border-gray-300 text-gray-900 text-sm mt-3 rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
+                    </div>
+                </div>
                 <div class="flex mt-3 flex-col">
 
-                    <label class="font-semibold">32. Medio utilizado para enviar comunicaciones oficiales entre órganos de la Administración del Estado.</label>
+                    <label class="font-semibold">33. Medio utilizado para enviar comunicaciones oficiales entre órganos de la Administración del Estado.</label>
                     <span class="text-sm text-gray-400">Si este registro considera el envío y recepción de comunicaciones oficiales, indique a través de qué medio éstas se efectúan.</span>
                     <div class="grid grid-cols-2 2xl:grid-cols-3 mt-4 mb-3 gap-5 ">
                         <label for="bordered-radio-9">
@@ -163,12 +185,21 @@
 @endif
 
 <script>
-    function toggleFields(value) {
+    function toggleFields3(value) {
         const additionalFields = document.getElementById('additional-fields');
         if (value === 'Si') {
             additionalFields.style.display = 'block';
         } else {
             additionalFields.style.display = 'none';
+        }
+    }
+
+    function toggleFields2(value) {
+        const additionalFields2 = document.getElementById('div-doc');
+        if (value === 'Si') {
+            additionalFields2.style.display = 'block';
+        } else {
+            additionalFields2.style.display = 'none';
         }
     }
 
@@ -189,11 +220,15 @@
         // Obtener el valor del radio button seleccionado al cargar la página
         const selectedValue = document.querySelector('input[name="expediente_otro_organo"]:checked');
         if (selectedValue) {
-            toggleFields(selectedValue.value);
+            toggleFields3(selectedValue.value);
         }
         const selectedValue2 = document.querySelector('input[name="tipo_informacion"]:checked');
         if (selectedValue) {
             toggleFields(selectedValue2.value);
+        }
+        const selectedValue3 = document.querySelector('input[name="doc_notarial"]:checked');
+        if (selectedValue) {
+            toggleFields2(selectedValue3.value);
         }
     });
 </script>

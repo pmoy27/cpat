@@ -28,6 +28,31 @@
                     </div>
                 </div>
                 <div class="flex flex-col">
+
+                    <label class="font-semibold">Mecanismo de autenticación digital para funcionarios</label>
+                    <span class="text-sm text-gray-400">Método o conjunto de procesos electrónicos que sustentan la autenticación con un nivel de confianza determinado para funcionarios.</span>
+                    <div class="flex mt-4 mb-3 gap-5 justify-between">
+                        <label for="bordered-radio-1">
+                            <div class="flex items-center gap-2 p-3 ps-4 w-[320px] h-[90px] border border-gray-200 rounded cursor-pointer">
+                                <input id="bordered-radio-1" name="mecanismos" type="radio" value="No utiliza mecanismo de autenticación digital para funcionarios" {{ ($digital->mecanismos ?? '') == "No utiliza mecanismo de autenticación digital para funcionarios" ? 'checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 ">
+                                <p class="text-xs font-normal text-gray-500">No utiliza mecanismo de autenticación digital para funcionarios</p>
+                            </div>
+                        </label>
+                        <label for="bordered-radio-2">
+                            <div class="flex items-center gap-2 p-3 ps-4 w-[320px] h-[90px] border border-gray-200 rounded cursor-pointer">
+                                <input id="bordered-radio-2" type="radio" name="mecanismos" value="Utiliza un mecanismo propio de autenticación digital para funcionarios" {{ ($digital->mecanismos ?? '') == "Utiliza un mecanismo propio de autenticación digital para funcionarios" ? 'checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 ">
+                                <p id="bordered-radio-2" class="text-xs font-normal text-gray-500 ">Utiliza un mecanismo propio de autenticación digital para funcionarios</p>
+                            </div>
+                        </label>
+                        <label for="bordered-radio-3">
+                            <div class="flex items-center gap-2 p-3 ps-4 w-[320px] h-[90px] border border-gray-200 rounded cursor-pointer">
+                                <input id="bordered-radio-3" type="radio" name="mecanismos" value="Utiliza ClaveÚnica como mecanismo de autenticación digital para funcionarios" {{ ($digital->mecanismos ?? '') == "Utiliza ClaveÚnica como mecanismo de autenticación digital para funcionarios" ? 'checked' : '' }} nclass="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 ">
+                                <p id="bordered-radio-3" class="text-xs font-normal text-gray-500 ">Utiliza ClaveÚnica como mecanismo de autenticación digital para funcionarios.</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex flex-col">
                     <label class="font-semibold">27. Firma electrónica Avanzada</label>
                     <span class="text-sm text-gray-400">Definición de apoyo: La firma electrónica avanzada es aquella certificada por un prestador acreditado, que ha sido creada usando medios que el titular mantiene bajo su exclusivo control, de manera que se vincule únicamente al mismo y a los datos a los que se refiere (Ley N°19.799).</span>
                     <select id="producto" name="firma_electronica" class="bg-white border border-gray-300 mt-3 mb-3 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">

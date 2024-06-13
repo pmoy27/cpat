@@ -42,13 +42,14 @@ class ProcedimientoController extends Controller
         $userName = Auth::user()->name;
         $totalAsignado = $procedimiento->where('estado', 'Asignado')->count();
         $totalFinalizado = $procedimiento->where('estado', 'Finalizado')->count();
+        $totalPublicados = $procedimiento->where('estado', 'Publicado')->count();
         $users = User::all();
         $userse = User::withCount(['procedimientos as procedimientos_asignados' => function ($query) {
             $query->where('estado', 'Asignado');
         }, 'procedimientos as procedimientos_finalizados' => function ($query) {
             $query->where('estado', 'Finalizado');
         }])->get();
-        return view('dashboard', compact('procedimiento', 'userName',  'totalAsignado', 'totalFinalizado', 'userse'), ['users' => $users]);
+        return view('dashboard', compact('procedimiento', 'userName',  'totalAsignado', 'totalFinalizado', 'totalPublicados', 'userse'), ['users' => $users]);
     }
 
     /**

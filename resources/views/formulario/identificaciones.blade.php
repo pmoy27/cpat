@@ -162,7 +162,7 @@
     });
     Toast.fire({
         icon: "success",
-        title: "Guardado, Correctamente"
+        title: "Guardado Correctamente"
     });
 </script>
 @endif

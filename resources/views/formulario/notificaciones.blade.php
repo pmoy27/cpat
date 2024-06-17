@@ -44,7 +44,7 @@
                         <span class="text-sm text-gray-400">Indique cómo se envían las notificaciones durante la etapa de finalización, que comprende la conclusión del procedimiento por medio de la emisión de la resolución final, por desistimiento, declaración de abandono o la renuncia al derecho en que se funda la solicitud.</span>
                         <div class="grid grid-cols-3 mt-4 justify-between gap-3 mb-3">
                             <div class="flex items-center">
-                                <input id="default-radio-12" type="radio" name="medio_notificacion" value="Sólo por medios físicos" {{ ($notificacion->medio_notificacion ?? '') == "Sólo por medio físico" ? 'Checked' : '' }} name="medio_notificacion" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 ">
+                                <input id="default-radio-12" type="radio" name="medio_notificacion" value="Sólo por medios físicos" {{ ($notificacion->medio_notificacion ?? '') == "Sólo por medios físicos" ? 'Checked' : '' }} name="medio_notificacion" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 ">
                                 <label for="default-radio-12" class="ms-2 text-sm font-medium text-gray-900 ">Sólo por medios físicos</label>
                             </div>
                             <div id="tipo-nivel0" class="flex items-center">

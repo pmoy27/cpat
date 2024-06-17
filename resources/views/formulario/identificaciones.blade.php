@@ -28,6 +28,7 @@
                     <span class="text-sm text-gray-400">Cargo de la o él funcionario responsable de la tramitación del registro. Por ejemplo "Asesor(a) de Políticas y Estudios".</span>
                     <input type="text" name="cargo_responsable" value="{{ old('cargo_responsable', isset($identificacion) ? $identificacion->cargo_responsable  : '') }}" class="bg-white border border-gray-300 text-gray-900 text-sm mt-3 rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
                 </div>
+                @if ($tipo_1 == 1)
                 <div class="flex flex-col">
                     <label class="font-semibold">5. Tipo de inicio</label>
                     <span class="text-sm text-gray-400">Acto que inicia el procedimiento administrativo de funciones comunes o específica, los que podrán iniciar de oficio o a solicitud de parte interesada.</span>
@@ -62,6 +63,10 @@
                     <span class="text-sm text-gray-400">Indique el nombre del acto administrativo de término de este registro. Por ejemplo "Resolución que adjudica Fondo Concursable sobre Transformación Digital".</span>
                     <input type="text" name="acto_termino" value="{{ old('acto_termino', isset($identificacion) ? $identificacion->acto_termino  : '') }}" class="bg-white border border-gray-300 text-gray-900 text-sm mt-3 rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
                 </div>
+                @else
+
+                @endif
+
                 <div class="flex flex-col">
                     <label class="font-semibold">8. Producto institucional</label>
                     <span class="text-sm text-gray-400">Los productos son los bienes y/o servicios que pueden ser entregados a las personas en el ejercicio del mandato institucional. Seleccione el producto que mejor se adecúa a este registro.</span>

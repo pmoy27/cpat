@@ -4,6 +4,7 @@
         @include('menu.minmenu')
         <div class="p-3 shadow-lg w-full border mb-10 border-gray-200 rounded-lg">
             <h5 class="text-lg font-semibold p-3">Soporte electronico</h5>
+
             <form class="mt-5 p-3 flex flex-col gap-5" action="{{route('formulario.soporte')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" value="{{$procedimiento->id}}" name="id_procedimiento">

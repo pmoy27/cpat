@@ -6,6 +6,7 @@ use App\Models\Digital;
 use App\Models\procedimiento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DigitalController extends Controller
 {
@@ -18,6 +19,31 @@ class DigitalController extends Controller
     }
     public function cargar($id)
     {
+
+        /*     $resultados = DB::table('soportes')
+            ->select(
+                DB::raw("CASE 
+                        WHEN (canales_atencion IS NULL OR canales_atencion = '') 
+                          OR (nivel_digitalizacion = 'Nivel 5' AND (fecha_digitalizacion IS NULL OR fecha_digitalizacion = '')) 
+                          OR (nivel_digitalizacion <> 'Nivel 0' AND (chile_atiende IS NULL OR chile_atiende = '' OR url_inicio IS NULL OR url_inicio = ''))
+                        THEN TRUE 
+                        ELSE FALSE 
+                     END AS es_vacio")
+            )
+            ->where('id_procedimiento', $id)
+            ->first();*/
+
+        $nivel = DB::table('soportes')
+            ->select(
+                DB::raw("CASE 
+                        WHEN (nivel_digitalizacion <> 'Nivel 0') 
+
+                        THEN TRUE 
+                        ELSE FALSE 
+                     END AS nivel_0")
+            )
+            ->where('id_procedimiento', $id)
+            ->first();
 
         $procedimiento = procedimiento::find($id);
 
@@ -32,7 +58,9 @@ class DigitalController extends Controller
         return view('formulario.digital', compact('userName'), [
             'digital' => $digital,
             'procedimiento' => $procedimiento,
-            'autenticacion' => $autenticacion
+            'autenticacion' => $autenticacion,
+            /*'es_vacio' => $resultados->es_vacio,*/
+            'nivel_0' => $nivel->nivel_0
 
 
 

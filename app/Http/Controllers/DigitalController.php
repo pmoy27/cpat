@@ -20,7 +20,7 @@ class DigitalController extends Controller
     public function cargar($id)
     {
 
-        /*     $resultados = DB::table('soportes')
+        /*$resultados = DB::table('soportes')
             ->select(
                 DB::raw("CASE 
                         WHEN (canales_atencion IS NULL OR canales_atencion = '') 
@@ -36,17 +36,16 @@ class DigitalController extends Controller
         $nivel = DB::table('soportes')
             ->select(
                 DB::raw("CASE 
-                        WHEN (nivel_digitalizacion <> 'Nivel 0') 
-
-                        THEN TRUE 
-                        ELSE FALSE 
-                     END AS nivel_0")
+                WHEN nivel_digitalizacion IS NOT NULL AND nivel_digitalizacion <> 'Nivel 0'
+                THEN TRUE 
+                ELSE FALSE 
+             END AS nivel_0")
             )
             ->where('id_procedimiento', $id)
             ->first();
 
         $procedimiento = procedimiento::find($id);
-
+        $nivel_0 = $nivel ? $nivel->nivel_0 : null;
         $userName = Auth::user()->name;
         $digital = Digital::select('*')
             ->where('id_procedimiento', $id)
@@ -59,8 +58,8 @@ class DigitalController extends Controller
             'digital' => $digital,
             'procedimiento' => $procedimiento,
             'autenticacion' => $autenticacion,
-            /*'es_vacio' => $resultados->es_vacio,*/
-            'nivel_0' => $nivel->nivel_0
+            /* 'es_vacio' => $resultados->es_vacio,*/
+            'nivel_0' => $nivel_0
 
 
 

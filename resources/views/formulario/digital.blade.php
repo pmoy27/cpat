@@ -65,6 +65,19 @@
 
                     </select>
                 </div>
+                @elseif (is_null($nivel_0))
+                <div class="flex flex-col">
+                    <label class="font-semibold">27. Firma electrónica Avanzada</label>
+                    <span class="text-sm text-gray-400">Definición de apoyo: La firma electrónica avanzada es aquella certificada por un prestador acreditado, que ha sido creada usando medios que el titular mantiene bajo su exclusivo control, de manera que se vincule únicamente al mismo y a los datos a los que se refiere (Ley N°19.799).</span>
+                    <select id="producto" name="firma_electronica" class="bg-white border border-gray-300 mt-3 mb-3 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                        <option selected disabled>Seleccióne una opción</option>
+                        <option name="firma_electronica" value="No utiliza" {{ ($digital->firma_electronica ?? '') == "No utiliza" ? 'selected' : '' }}>No utiliza</option>
+                        <option name="firma_electronica" value="Utiliza firma electrónica avanzada del Estado (Firma Gob)" {{ ($digital->firma_electronica ?? '') == "Utiliza firma electrónica avanzada del Estado (Firma Gob)" ? 'selected' : '' }}>Utiliza firma electrónica avanzada del Estado (Firma Gob)</option>
+                        <option name="firma_electronica" value="Utiliza firma electrónica avanzada provista por un externo" {{ ($digital->firma_electronica ?? '') == "Utiliza firma electrónica avanzada provista por un externo" ? 'selected' : '' }}>Utiliza firma electrónica avanzada provista por un externo</option>
+                        <option name="firma_electronica" value="Utiliza ambos tipos de firma (FirmaGob y provista por un externo)" {{ ($digital->firma_electronica ?? '') == "Utiliza ambos tipos de firma (FirmaGob y provista por un externo)" ? 'selected' : '' }}>Utiliza ambos tipos de firma (FirmaGob y provista por un externo)</option>
+
+                    </select>
+                </div>
                 @else
                 <div class="flex flex-col">
                     <label class="font-semibold">27. Firma electrónica Avanzada</label>

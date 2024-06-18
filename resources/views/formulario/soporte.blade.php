@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                         </label>
-                        @if ($procedimiento->Tipo_procedimiento == 'Procedimiento administrativo de función específica')
+                        @if ($procedimiento->Tipo_procedimiento == 'Procedimiento administrativo de función específica' || $procedimiento->Tipo_procedimiento == 'Otras tramitaciones')
 
 
                         <label for="bordered-radio-4">

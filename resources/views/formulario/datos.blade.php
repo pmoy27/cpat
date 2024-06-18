@@ -138,8 +138,9 @@
                                 <path d="M12 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
                                 <path d="M14 4l0 4l-6 0l0 -4" />
                             </svg>Guardar</button>
-                        @if (is_null($identificacion_vacio) && is_null($marco_vacio) && is_null($usuario_vacio) && is_null($es_vacio) && is_null($digital_vacio) && is_null($noti_vacio) && is_null($dato_vacio) )
-                        <button type="button" class="flex items-center text-sm gap-2 p-3 border cursor-not-allowed bg-blue-400 text-white" disabled>
+                        @if ($procedimiento->Tipo_procedimiento == 'Procedimiento administrativo de función común')
+                        @if (!isset($identificacion_vacio) || !isset($marco_vacio) || !isset($es_vacio) || !isset($digital_vacio) || !isset($noti_vacio) || !isset($dato_vacio))
+                        <button data-tooltip-target="tooltip-default" type="button" class="flex items-center text-sm gap-2 p-3 border cursor-not-allowed bg-blue-400 text-white" disabled>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-send">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path d="M10 14l11 -11" />
@@ -147,9 +148,11 @@
                             </svg>
                             Finalizar y enviar
                         </button>
-
-                        @elseif ( $identificacion_vacio == 0 && $dato_vacio == 0 && $usuario_vacio == 0 && $es_vacio == 0 && $digital_vacio == 0 && $noti_vacio == 0 && $dato_vacio == 0)
-
+                        <div id="tooltip-default" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                            Para finalizar debes completar los formularios
+                            <div class="tooltip-arrow" data-popper-arrow></div>
+                        </div>
+                        @elseif ($identificacion_vacio == 0 && $marco_vacio == 0 && $es_vacio == 0 && $digital_vacio == 0 && $noti_vacio == 0 && $dato_vacio == 0)
                         <a data-modal-target="confirmar" data-modal-toggle="confirmar" class="flex items-center text-sm gap-2 p-3 border cursor-pointer bg-blue-900 text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-send">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -159,7 +162,7 @@
                             Finalizar y enviar
                         </a>
                         @else
-                        <button type="button" class="flex items-center text-sm gap-2 p-3 border cursor-not-allowed bg-blue-400 text-white" disabled>
+                        <button data-tooltip-target="tooltip-default" type="button" class="flex items-center text-sm gap-2 p-3 border cursor-not-allowed bg-blue-400 text-white" disabled>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-send">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path d="M10 14l11 -11" />
@@ -167,8 +170,50 @@
                             </svg>
                             Finalizar y enviar
                         </button>
-
+                        <div id="tooltip-default" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                            Para finalizar debes completar los formularios
+                            <div class="tooltip-arrow" data-popper-arrow></div>
+                        </div>
                         @endif
+                        @else
+                        @if (!isset($identificacion_vacio) || !isset($marco_vacio) || !isset($usuario_vacio) || !isset($es_vacio) || !isset($digital_vacio) || !isset($noti_vacio) || !isset($dato_vacio))
+                        <button data-tooltip-target="tooltip-default" type="button" class="flex items-center text-sm gap-2 p-3 border cursor-not-allowed bg-blue-400 text-white" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-send">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 14l11 -11" />
+                                <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+                            </svg>
+                            Finalizar y enviar
+                        </button>
+                        <div id="tooltip-default" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                            Para finalizar debes completar los formularios
+                            <div class="tooltip-arrow" data-popper-arrow></div>
+                        </div>
+                        @elseif ($identificacion_vacio == 0 && $marco_vacio == 0 && $dato_vacio == 0 && $usuario_vacio == 0 && $es_vacio == 0 && $digital_vacio == 0 && $noti_vacio == 0 && $dato_vacio == 0)
+                        <a data-modal-target="confirmar" data-modal-toggle="confirmar" class="flex items-center text-sm gap-2 p-3 border cursor-pointer bg-blue-900 text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-send">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 14l11 -11" />
+                                <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+                            </svg>
+                            Finalizar y enviar
+                        </a>
+                        @else
+                        <button data-tooltip-target="tooltip-default" type="button" class="flex items-center text-sm gap-2 p-3 border cursor-not-allowed bg-blue-400 text-white" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-send">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 14l11 -11" />
+                                <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+                            </svg>
+                            Finalizar y enviar
+                        </button>
+                        <div id="tooltip-default" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                            Para finalizar debes completar los formularios
+                            <div class="tooltip-arrow" data-popper-arrow></div>
+                        </div>
+                        @endif
+                        @endif
+
 
 
 

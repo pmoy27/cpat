@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/digital/{id}', [DigitalController::class, 'cargar'])->name('formulario.digital');
     Route::get('/listado', [ProcedimientoController::class, 'index'])->name('procedimiento.listado');
 
-    Route::get('/dashboard', [ProcedimientoController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [ProcedimientoController::class, 'dashboard'])->name('dashboard')->middleware('role:admin');
     Route::get('/detalle/{id}', [ProcedimientoController::class, 'detalle'])->name('procedimientos.vista');
     Route::get('/reporte/{id}', [ProcedimientoController::class, 'reporte'])->name('procedimiento.detalle');
     Route::get('/notificaciones/{id}', [NotificacionController::class, 'cargar'])->name('formulario.notifiaciones');

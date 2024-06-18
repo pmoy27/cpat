@@ -44,7 +44,7 @@
                     <div class="flex flex-col">
 
                         <label class="font-semibold">12. Tipo de usuario(a)</label>
-                        <div class="flex mt-4 mb-3 gap-5 justify-between">
+                        <div class="grid grid-cols-2 2xl:grid-cols-3 mt-4 gap-5 justify-between">
                             <label for="bordered-radio-1">
                                 <div class="flex items-center gap-2 p-3 ps-4 w-[320px] h-[90px] border border-gray-200 rounded cursor-pointer">
                                     <input id="bordered-radio-1" name="tipo_usuario" type="radio" value="Persona natural" {{ ($usuario->tipo_usuario ?? '') == "Persona natural" ? 'checked' : '' }} name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 ">
@@ -84,7 +84,7 @@
                     <div class="flex flex-col">
 
                         <label class="font-semibold">14. Relación con el Registro Social de Hogares (RSH) y/o con el Registro de Información Social (RIS) para la selección de sus usuarios</label>
-                        <div class="flex mt-4 mb-3 gap-5 justify-between">
+                        <div class="grid grid-cols-2 2xl:grid-cols-3 mt-4 gap-5 justify-between">
                             <label for="bordered-radio-4">
                                 <div class="flex items-center gap-2 p-3 ps-4 w-[320px] h-[90px] border border-gray-200 rounded cursor-pointer">
                                     <input id="bordered-radio-4" name="registro_social" type="radio" value="Si, se interopera con el Ministerio de Desarrollo Social y Familia" {{ ($usuario->registro_social ?? '') == "Si, se interopera con el Ministerio de Desarrollo Social y Familia" ? 'checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 ">

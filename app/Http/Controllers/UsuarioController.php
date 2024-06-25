@@ -30,13 +30,13 @@ class UsuarioController extends Controller
         $resultados = DB::table('soportes')
             ->select(
                 DB::raw("CASE 
-        WHEN (canales_atencion IS NULL OR canales_atencion = '' OR canales_transaccionales IS NULL OR canales_transaccionales = '' OR tipo_expediente  IS NULL OR tipo_expediente = '') 
-          OR (nivel_digitalizacion = 'Nivel 5' AND (canales_atencion IS NULL OR canales_atencion = '' OR canales_transaccionales IS NULL OR canales_transaccionales = '' OR tipo_expediente IS NULL OR tipo_expediente = '' OR acceso_expediente IS NULL OR acceso_expediente = '' OR url_inicio IS NULL OR url_inicio = '' OR fecha_digitalizacion IS NULL OR chile_atiende IS NULL OR chile_atiende = '' OR n_plataformas IS NULL OR n_plataformas = '' OR alcance_plataformas IS NULL OR alcance_plataformas= '' OR plataforma_utilizado IS NULL OR plataforma_utilizado='' OR fecha_digitalizacion IS NULL OR  fecha_digitalizacion = '' )   ) 
-          OR (nivel_digitalizacion <> 'Nivel 0' AND (canales_atencion IS NULL OR canales_atencion = '' OR canales_transaccionales IS NULL OR canales_transaccionales = '' OR tipo_expediente IS NULL OR tipo_expediente = '' OR acceso_expediente IS NULL OR acceso_expediente = '' OR url_inicio IS NULL OR url_inicio = '' OR fecha_digitalizacion IS NULL OR chile_atiende IS NULL OR chile_atiende = '' OR n_plataformas IS NULL OR n_plataformas = '' OR alcance_plataformas IS NULL OR alcance_plataformas= '' OR plataforma_utilizado IS NULL OR plataforma_utilizado=''))
-          OR (chile_atiende = 'SI' AND (url_ficha IS NULL OR url_ficha = ''))
-        THEN TRUE 
-        ELSE FALSE 
-     END AS es_vacio")
+            WHEN (canales_atencion IS NULL OR canales_atencion = '' OR canales_transaccionales IS NULL OR canales_transaccionales = '' OR tipo_expediente  IS NULL OR tipo_expediente = '') 
+              OR (nivel_digitalizacion = 'Nivel 5' AND (canales_atencion IS NULL OR canales_atencion = '' OR canales_transaccionales IS NULL OR canales_transaccionales = '' OR tipo_expediente IS NULL OR tipo_expediente = '' OR acceso_expediente IS NULL OR acceso_expediente = '' OR url_inicio IS NULL OR url_inicio = '' OR fecha_digitalizacion IS NULL OR fecha_digitalizacion= ''  OR chile_atiende IS NULL OR chile_atiende = '' OR n_plataformas IS NULL OR n_plataformas = '' OR alcance_plataformas IS NULL OR alcance_plataformas= '' OR plataforma_utilizado IS NULL OR plataforma_utilizado='' OR fecha_digitalizacion IS NULL OR  fecha_digitalizacion = '' )   ) 
+              OR (nivel_digitalizacion <> 'Nivel 0' AND (canales_atencion IS NULL OR canales_atencion = '' OR canales_transaccionales IS NULL OR canales_transaccionales = '' OR tipo_expediente IS NULL OR tipo_expediente = '' OR acceso_expediente IS NULL OR acceso_expediente = '' OR url_inicio IS NULL OR url_inicio = ''  OR chile_atiende IS NULL OR chile_atiende = '' OR n_plataformas IS NULL OR n_plataformas = '' OR alcance_plataformas IS NULL OR alcance_plataformas= '' OR plataforma_utilizado IS NULL OR plataforma_utilizado=''))
+              OR (chile_atiende = 'SI' AND (url_ficha IS NULL OR url_ficha = ''))
+            THEN TRUE 
+            ELSE FALSE 
+         END AS es_vacio")
             )
             ->where('id_procedimiento', $id)
             ->first();

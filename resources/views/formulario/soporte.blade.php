@@ -203,7 +203,7 @@
                     <div class="flex flex-col mt-3">
                         <label class="font-semibold">24. Alcance de las plataformas electrónicas que soportan el registro</label>
                         <span class="text-sm text-gray-400">Respecto de las plataformas indicadas en la pregunta anterior, señale si ellas cubren todo el procedimiento administrativo o algunas etapas de éste.</span>
-                        <div class="grid grid-cols-1 2xl:grid-cols-2 mt-4 gap-5 justify-between">
+                        <div class="grid grid-cols-1 xl:grid-cols-2 mt-4 gap-5 justify-between">
                             <label for="bordered-radio-7">
                                 <div class="flex items-center gap-2 p-3 ps-4 w-[320px] h-[95px]  border border-gray-200 rounded cursor-pointer">
                                     <input id="bordered-radio-7" name="alcance_plataformas" type="radio" value="Las plataformas electrónicas soportan todas las etapas de tramitación del procedimiento administrativo u otra tramitación" {{ ($soporte->alcance_plataformas ?? '') == "Las plataformas electrónicas soportan todas las etapas de tramitación del procedimiento administrativo u otra tramitación" ? 'Checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 ">

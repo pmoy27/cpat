@@ -151,7 +151,7 @@
                     <div class="flex flex-col mt-3 mb-4">
                         <label class="font-semibold">20. Acceso al expediente electronico por parte de los interesados</label>
                         <span class="text-sm text-gray-400">De acuerdo al artículo 18 de la Ley N° 19.880, los(as) interesados(as) tendrán acceso permanente a los expedientes electrónicos, el cuál contendrá un registro de todas las actuaciones del procedimiento. Si dispone de un expediente electrónico, indique si los(as) interesados(as) pueden acceder a éste permanentemente. Si no dispone de expediente electrónico indicar la opción "No".</span>
-                        <div class="grid grid-cols-3 mt-4 gap-5 justify-between">
+                        <div class="grid grid-cols-1 2xl:grid-cols-2 mt-4 gap-5 justify-between">
                             <label for="bordered-radio-9">
                                 <div class="flex items-center gap-2 p-3 ps-4 w-[320px] h-[95px]  border border-gray-200 rounded cursor-pointer">
                                     <input id="bordered-radio-9" name="acceso_expediente" type="radio" value="Sí, los (as) interesados(as) tienen acceso al expediente electrónico." {{ ($soporte->acceso_expediente ?? '') == "Sí, los (as) interesados(as) tienen acceso al expediente electrónico." ? 'checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 ">

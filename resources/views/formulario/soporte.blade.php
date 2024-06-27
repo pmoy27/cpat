@@ -106,7 +106,7 @@
                 <div class="flex flex-col mt-3">
                     <label class="font-semibold">18. Canal(es) transaccional(es)</label>
                     <span class="text-sm text-gray-400">Medio a través del cuál se puede realizar la totalidad del procedimiento administrativo u otras tramitaciones, desde su inicio hasta la entrega de la respuesta final. Para estos canales se solicitarán transacciones.</span>
-                    <div id="" class="flex items-center mb-4 mt-3" style="display: none;">
+                    <div id="digital2" class="flex items-center mb-4 mt-3" style="display: none;">
                         <input id="checked-checkbox-5" type="checkbox" name="canales_transaccionales[]" value="Canal digital" {{ in_array('Canal digital', $canales_transaccionales) ? 'checked' : '' }} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500  focus:ring-2 ">
                         <label for="checked-checkbox-5" class="ms-2 text-sm font-medium text-gray-900 ">Canal digital</label>
                     </div>
@@ -306,6 +306,7 @@
             additionalFields3.style.display = 'block';
             additionalFields4.style.display = 'block';
             additionalFields5.style.display = 'block';
+            additionalFields6.style.display = 'block';
         } else if (value === 'Nivel 0') {
             additionalFields.style.display = 'none';
             additionalFields2.style.display = 'none';

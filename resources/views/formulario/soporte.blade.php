@@ -305,6 +305,7 @@
             additionalFields2.style.display = 'block';
             additionalFields3.style.display = 'block';
             additionalFields4.style.display = 'block';
+            additionalFields5.style.display = 'block';
         } else if (value === 'Nivel 0') {
             additionalFields.style.display = 'none';
             additionalFields2.style.display = 'none';

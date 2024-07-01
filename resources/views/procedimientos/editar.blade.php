@@ -37,6 +37,15 @@
                             </select>
                         </div>
                         <div class="col-span-2 sm:col-span-1">
+                            <label for="" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Tipo de procedimiento<span class="text-red-700 text-sm">*</span></label>
+                            <select id="Tipo_procedimiento" name="Tipo_procedimiento" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block " required="">
+                                <option value="" selected>Selecciones una Opción</option>
+                                <option name="Tipo_procedimiento" value="Procedimiento administrativo de función común" {{ ($procedimiento->Tipo_procedimiento ?? '') == "Procedimiento administrativo de función común" ? 'selected' : '' }}>Procedimiento administrativo de función común</option>
+                                <option name="Tipo_procedimiento" value="Procedimiento administrativo de función específica" {{ ($procedimiento->Tipo_procedimiento ?? '') == "Procedimiento administrativo de función específica" ? 'selected' : '' }}>Procedimiento administrativo de función específica</option>
+                                <option name="Tipo_procedimiento" value="Otras tramitaciones" {{ ($procedimiento->Tipo_procedimiento ?? '') == "Otras tramitaciones" ? 'selected' : '' }}>Otras tramitaciones</option>
+                            </select>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1">
                             <label for="" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Usuario <span class="text-red-700 text-sm">*</span></label>
                             <select id="id_usuario" name="id_usuario" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block " required="">
                                 <option value="" selected>Selecciones una Opción</option>

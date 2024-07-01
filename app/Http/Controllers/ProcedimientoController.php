@@ -141,6 +141,7 @@ class ProcedimientoController extends Controller
         $procedimiento->nombre = $request->input('nombre');
         $procedimiento->id_usuario = $request->input('id_usuario');
         $procedimiento->estado = $request->input('estado');
+        $procedimiento->Tipo_procedimiento = $request->input('Tipo_procedimiento');
 
 
         $procedimiento->update();

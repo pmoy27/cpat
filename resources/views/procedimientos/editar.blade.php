@@ -45,6 +45,7 @@
                                 <option name="Tipo_procedimiento" value="Otras tramitaciones" {{ ($procedimiento->Tipo_procedimiento ?? '') == "Otras tramitaciones" ? 'selected' : '' }}>Otras tramitaciones</option>
                             </select>
                         </div>
+                        <!--
                         <div class="col-span-2 sm:col-span-1">
                             <label for="" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Usuario <span class="text-red-700 text-sm">*</span></label>
                             <select id="id_usuario" name="id_usuario" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block " required="">
@@ -54,7 +55,7 @@
                                 @endforeach
                             </select>
                         </div>
-
+                        -->
                     </div>
                     <button type="submit" class="flex gap-1 items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-sm text-xs px-2 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 uppercase">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-device-floppy">

@@ -139,19 +139,16 @@ class ProcedimientoController extends Controller
         $id = $request->input('id');
         $procedimiento = procedimiento::find($id);
         $procedimiento->nombre = $request->input('nombre');
-        $procedimiento->id_usuario = $request->input('id_usuario');
+        /*
+        $procedimiento->id_usuario = $request->input('id_usuario');*/
         $procedimiento->estado = $request->input('estado');
         $procedimiento->Tipo_procedimiento = $request->input('Tipo_procedimiento');
-
-
         $procedimiento->update();
 
         return redirect()->back()->with('success', 'Registro guardado correctamente');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(Request $request, procedimiento $procedimiento)
     {
         $id = $request->input('id');
